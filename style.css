@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.5em;
+    background-color: #242350;
+
+    margin: 0;
+    padding: 0;
+
+    background: #202048;
+}
+
+p, h1 {
+    background: linear-gradient(to right, #9588e1 0%, #ee86b8 100%);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    color: #9588e1;
+}
+
+a, a:focus, a:active {
+    position: relative;
+    text-decoration: none;
+    left: 0px;
+
+    background: linear-gradient(to right, #9588e1 0%, #ee86b8 100%);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: 0.5s;
+}
+
+a:hover {
+   left: 8px;
+}
+
+@media all and (min-width: 801px) {
+
+    body header {
+        background-color: #1a1a40;
+        display: block;
+        text-align: center;
+        padding: 2em;
+        margin: 0;
+    }
+
+    body main {
+        background-color: #242350;
+        padding: 2em;
+        width: 70%;
+        height: 64%;
+        margin: auto;
+    }
+
+}
+
+@media all and (max-width: 800px) {
+
+    body header {
+        background-color: #1a1a40;
+        display: block;
+        text-align: center;
+        padding: 2em;
+        margin: 0;
+    }
+
+    body main {
+        background-color: #242350;
+        padding: 2em;
+        height: 64%;
+        margin: auto;
+    }
+    
+}
+
