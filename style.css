@@ -49,16 +49,37 @@ a:hover {
         background-color: #1a1a40;
         display: block;
         text-align: center;
-        padding: 2em;
+        padding: 1.5em;
         margin: 0;
     }
 
     body main {
         background-color: #242350;
         padding: 2em;
-        width: 70%;
+        width: 65%;
         height: 64%;
         margin: auto;
+    }
+
+    ul li div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .DL, .DL:focus, .DL:active {
+        position: relative;
+        text-decoration: none;
+        right: 0px;
+    
+        background: linear-gradient(to right, #ee86b8 0%, #9588e1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    
+        transition: 0.5s;
+    }
+    
+    .DL:hover {
+       right: 8px;
     }
 
 }
@@ -78,6 +99,22 @@ a:hover {
         padding: 2em;
         height: 60%;
         margin: auto;
+    }
+
+    ul li div {
+        margin-bottom: 1em;
+    }
+
+    .DL, .DL:focus, .DL:active, .DL:hover {
+        position: relative;
+        text-decoration: none;
+        right: 0px;
+    
+        background: linear-gradient(to right, #9588e1 0%, #ee86b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    
+        transition: 0.5s;
     }
     
 }
