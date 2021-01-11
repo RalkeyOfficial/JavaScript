@@ -43,17 +43,6 @@ a:hover {
    left: 8px;
 }
 
-.file {
-    position: relative;
-    top: 7px;
-    width: 1em;
-}
-.folder {
-    position: relative;
-    top: 8px;
-    width: 1em;
-}
-
 @media all and (min-width: 801px) {
 
     body header {
