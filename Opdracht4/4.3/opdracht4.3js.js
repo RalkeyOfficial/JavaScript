@@ -12,15 +12,12 @@ const mondholder = document.getElementById("slider3")
 
 ogenholder.addEventListener("click", function(){
     ogenholder.innerHTML = ogen[slider1()]
-    slicky1visibility
 })
 neusholder.addEventListener("click", function(){
     neusholder.innerHTML = neus[slider2()]
-    slicky2visibility
 })
 mondholder.addEventListener("click", function(){
     mondholder.innerHTML = mond[slider3()]
-    slicky3visibility
 })
 
 function slider1() {
@@ -49,14 +46,4 @@ function slider3() {
     }
 
     return mondteller
-}
-
-function slicky1visibility() {
-    document.getElementById("click1").style.visibility = "hidden"
-}
-function slicky2visibility() {
-    document.getElementById("click2").style.visibility = "hidden"
-}
-function slicky3visibility() {
-    document.getElementById("click3").style.visibility = "hidden"
 }
