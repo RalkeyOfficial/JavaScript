@@ -26,7 +26,7 @@ for (let index = 1; index < 19; index++) {
     imgElement = document.createElement('img');
     imgElement.className = "imgclass"
     imgElement.id = "img" + index;
-    imgElement.src = "#";
+    imgElement.src = "images/white.png";
     pictureHolder.appendChild(imgElement);
 
     pictureHolder.addEventListener("click", function(){
@@ -53,7 +53,7 @@ let firstImagenumber, secondImageNumber;
 
 function Selector(id, index) {
     console.log(`DEBUG :: id of selected element: ${id}`);
-    console.log(`DEBUG :: index: ${index}`)
+    console.log(`DEBUG :: index:                  ${index}`)
 
     if(first){
 
@@ -62,7 +62,7 @@ function Selector(id, index) {
 
         document.getElementById(currentImgHolder).src = `images/img${usedRandomNumbers[index - 1]}.png`;
         firstImageNumber = usedRandomNumbers[index - 1];
-        console.log(firstImagenumber);
+        console.log(`DEBUG :: saved image number      ${firstImagenumber}\n`);
 
         first = false;
 
@@ -73,7 +73,7 @@ function Selector(id, index) {
 
         document.getElementById(secondImgHolder).src = `images/img${usedRandomNumbers[index - 1]}.png`;
         secondImageNumber = usedRandomNumbers[index - 1];
-        console.log(secondImageNumber);
+        console.log(`DEBUG :: saved image number      ${secondImagenumber}\n`);
 
         first = true;
 
