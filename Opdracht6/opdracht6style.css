@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.5em;
+    background-color: #242350;
+
+    margin: 0;
+    padding: 0;
+
+    background: #202048;
+}
+
+p, h1 {
+    text-align: center;
+    background: linear-gradient(to right, #9588e1 0%, #ee86b8 100%);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 180px 180px 180px 180px 180px 180px;
+}
+
+#container > div {
+    height: 180px;
+    margin: 5px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.imgclass {
+    width: 180px;
+    height: 180px;
+}
+
