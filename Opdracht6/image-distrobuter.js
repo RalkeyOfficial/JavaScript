@@ -131,7 +131,6 @@ function checkForEqual() {
 
         if (firstImgNumber == temp) {
             ammOfCorrectGuesses += 1;
-            console.log(ammOfCorrectGuesses);
         } else {
             document.getElementById(firstId).src = "images/white.png";
             document.getElementById(secondId).src = "images/white.png";
@@ -143,7 +142,6 @@ function checkForEqual() {
 
         if (secondImgNumber == temp) {
             ammOfCorrectGuesses += 1;
-            console.log(ammOfCorrectGuesses)
         } else {
             document.getElementById(firstId).src = "images/white.png";
             document.getElementById(secondId).src = "images/white.png";
