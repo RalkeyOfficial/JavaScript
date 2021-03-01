@@ -18,14 +18,15 @@
 
 */
 
-function GenerateRandomNumber() {
-    return Math.floor(Math.random() * 6) + 1;
-}
 
 // ELEMENTEN
 const diceImageElement = document.querySelector(".dice");
 const rollDiceElement = document.querySelector(".btn--roll");
 const holdDiceElement = document.querySelector(".btn--hold");
+const resetGameElement = document.querySelector(".btn--new");
+
+const backgroundPlayer1 = document.querySelector(".player--0");
+const backgroundPlayer2 = document.querySelector(".player--1");
 
 const player1CurrentScoresElement = document.getElementById("current--0");
 const player2CurrentScoresElement = document.getElementById("current--1");
@@ -37,21 +38,25 @@ const player2FinalScoresElement = document.getElementById("score--1");
 const currentScores = [0, 0]
 const finalScores = [0, 0]
 let currentPlayer = 0;
+let scoreToWin = 100;
 
-/*
-    use function "GenerateRandomNumber"
-    change dobbelsteen picture to the right image according to the random number
-    check if generated number == 1
-        if true:  maak current score 0
-        if false: voeg generated number toe aan current score
-*/
 
-// ROLL DICE & ADD SCORES
+//!Randomize starting player
+currentPlayer = Math.floor(Math.random() * 1) + 1;
+
+//!starting functions
+changeBG();
+
+
+//!EventListeners
+// ROLL DICE & ADD SCORES & SWITCH PLAYERS
 rollDiceElement.addEventListener("click", function(){
+
     const generatedNumber = GenerateRandomNumber();
     diceImageElement.src = `dice-${generatedNumber}.png`;
 
     if(generatedNumber === 1){
+        resetCurrentScores();
         switchPlayers();
         ShowScoresOnScreen();
 
@@ -59,31 +64,85 @@ rollDiceElement.addEventListener("click", function(){
         currentScores[currentPlayer] += generatedNumber;
         ShowScoresOnScreen();
 
-        console.log(currentScores);
     }
 })
 
+//HOLD CURRENT SCORES & CHECK IF WINNER & SWITCH PLAYERS
 holdDiceElement.addEventListener("click", function(){
     finalScores[currentPlayer] += currentScores[currentPlayer];
 
-    switchPlayers();
+    resetCurrentScores();
     ShowScoresOnScreen();
+    checkIfWinner();
+    switchPlayers();
 })
 
-function ShowScoresOnScreen() {
-    player1CurrentScoresElement.textContent = currentScores[0];
-    player2CurrentScoresElement.textContent = currentScores[1];
+//RESET GAME
+resetGameElement.addEventListener("click", function(){
+    resetGame();
+})
 
-    player1FinalScoresElement.textContent = finalScores[0];
-    player2FinalScoresElement.textContent = finalScores[1];
+
+//!Functions
+//laat scores op scherm zien
+function ShowScoresOnScreen() {
+    [player1CurrentScoresElement.textContent, player2CurrentScoresElement.textContent] = currentScores;
+    [player1FinalScoresElement.textContent, player2FinalScoresElement.textContent] = finalScores;
 }
 
-function switchPlayers() {
+//reset de current scores van de current player
+function resetCurrentScores() {
     currentScores[currentPlayer] = 0;
-    if(currentPlayer === 0){
-        currentPlayer = 1;
+}
+
+//switch van current player & change BG
+function switchPlayers() {
+    //if current player = 0
+    //  if true: current player = 1
+    //  if false: current player = 0
+    currentPlayer = (currentPlayer === 0) ? 1 : 0;
+    changeBG();
+}
+
+//check if current player won
+function checkIfWinner() {
+    if (finalScores[currentPlayer] >= scoreToWin) {
+        showVictoryScreen();
+        return true;
+    }
+    return false;
+}
+
+//show a alert that the current player won & reset game over 5 seconds
+function showVictoryScreen() {
+    alert(`Player ${currentPlayer + 1} WON!`);
+    setTimeout(resetGame, 5000);
+}
+
+//reset the game
+function resetGame() {
+    currentScores[0] = 0;
+    currentScores[1] = 0;
+    finalScores[0] = 0;
+    finalScores[1] = 0;
+
+    ShowScoresOnScreen();
+}
+
+//generate a random number
+function GenerateRandomNumber() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+//change background color
+function changeBG() {
+    // changes BG color by adding a class to the active player's background
+    if (currentPlayer === 0) {
+        backgroundPlayer1.classList.add("player--active");
+        backgroundPlayer2.classList.remove("player--active");
     } else {
-        currentPlayer = 0;
+        backgroundPlayer1.classList.remove("player--active");
+        backgroundPlayer2.classList.add("player--active");
     }
 }
 
