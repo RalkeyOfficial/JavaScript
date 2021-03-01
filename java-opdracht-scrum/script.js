@@ -35,14 +35,11 @@ const player1FinalScoresElement = document.getElementById("score--0");
 const player2FinalScoresElement = document.getElementById("score--1");
 
 // HULP VARIABELEN
-const currentScores = [0, 0]
-const finalScores = [0, 0]
+const currentScores = [0, 0];
+const finalScores = [0, 0];
 let currentPlayer = 0;
 let scoreToWin = 100;
 
-
-//!Randomize starting player
-currentPlayer = Math.floor(Math.random() * 1) + 1;
 
 //!starting functions
 changeBG();
@@ -52,7 +49,7 @@ changeBG();
 // ROLL DICE & ADD SCORES & SWITCH PLAYERS
 rollDiceElement.addEventListener("click", function(){
 
-    const generatedNumber = GenerateRandomNumber();
+    const generatedNumber = GenerateRandomNumber(6);
     diceImageElement.src = `dice-${generatedNumber}.png`;
 
     if(generatedNumber === 1){
@@ -67,7 +64,7 @@ rollDiceElement.addEventListener("click", function(){
     }
 })
 
-//HOLD CURRENT SCORES & CHECK IF WINNER & SWITCH PLAYERS
+// HOLD CURRENT SCORES & CHECK IF WINNER & SWITCH PLAYERS
 holdDiceElement.addEventListener("click", function(){
     finalScores[currentPlayer] += currentScores[currentPlayer];
 
@@ -77,7 +74,7 @@ holdDiceElement.addEventListener("click", function(){
     switchPlayers();
 })
 
-//RESET GAME
+// RESET GAME
 resetGameElement.addEventListener("click", function(){
     resetGame();
 })
@@ -116,7 +113,7 @@ function checkIfWinner() {
 //show a alert that the current player won & reset game over 5 seconds
 function showVictoryScreen() {
     alert(`Player ${currentPlayer + 1} WON!`);
-    setTimeout(resetGame, 5000);
+    setTimeout(resetGame, 3000);
 }
 
 //reset the game
@@ -130,8 +127,8 @@ function resetGame() {
 }
 
 //generate a random number
-function GenerateRandomNumber() {
-    return Math.floor(Math.random() * 6) + 1;
+function GenerateRandomNumber(n) {
+    return Math.floor(Math.random() * n) + 1;
 }
 
 //change background color
